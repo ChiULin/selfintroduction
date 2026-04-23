@@ -1,10 +1,302 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>介紹示範首頁</title>
-    </head>
-    <body>
-        <h1>歡迎來到我的網站 4</h1>
-        <p>這是我的第一個網頁！</p>
-    </body>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>林鈺棋 · 自我簡介</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #b2e8d8;
+    font-family: 'Noto Sans TC', sans-serif;
+    padding: 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* animated bg bubbles */
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
+  body::before {
+    width: 380px; height: 380px;
+    background: #5DCAA5;
+    top: -100px; left: -80px;
+  }
+  body::after {
+    width: 300px; height: 300px;
+    background: #FAC775;
+    bottom: -80px; right: -60px;
+    animation-delay: -4s;
+  }
+
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.08); }
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 28px;
+    border: 1.5px solid rgba(255,255,255,0.9);
+    box-shadow: 0 8px 40px rgba(15,110,86,0.18);
+    overflow: hidden;
+    animation: cardIn 0.7s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* top ocean strip */
+  .ocean-header {
+    background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%);
+    padding: 2rem 2rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ocean-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: rgba(255,255,255,0.72);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+
+  /* sun deco */
+  .sun {
+    position: absolute;
+    top: 16px; right: 24px;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #FAC775;
+    box-shadow: 0 0 0 8px rgba(250,199,117,0.25);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 8px rgba(250,199,117,0.25); }
+    50%      { box-shadow: 0 0 0 16px rgba(250,199,117,0.12); }
+  }
+
+  .wave-deco {
+    position: absolute;
+    bottom: 30px; left: 0; right: 0;
+    opacity: 0.18;
+  }
+
+  /* avatar */
+  .avatar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 2.5px solid rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .header-text h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.06em;
+  }
+  .header-text .sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* body */
+  .card-body {
+    padding: 1.4rem 2rem 2rem;
+  }
+
+  /* tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.4rem;
+  }
+  .tag {
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .tag-teal  { background: #E1F5EE; color: #0F6E56; border: 1px solid #9FE1CB; }
+  .tag-amber { background: #FAEEDA; color: #854F0B; border: 1px solid #FAC775; }
+  .tag-blue  { background: #E6F1FB; color: #185FA5; border: 1px solid #B5D4F4; }
+
+  /* intro text */
+  .intro p {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: #2a4a40;
+    margin-bottom: 0.6rem;
+  }
+
+  /* divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #9FE1CB, transparent);
+    margin: 1.2rem 0;
+  }
+
+  /* job row */
+  .job-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+  }
+  .job-label {
+    font-size: 0.75rem;
+    color: #5DCAA5;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .job-text {
+    font-size: 0.85rem;
+    color: #085041;
+    font-weight: 500;
+  }
+
+  /* motto */
+  .motto {
+    background: linear-gradient(135deg, #E1F5EE, #b2e8d8);
+    border-left: 4px solid #1D9E75;
+    border-radius: 0 12px 12px 0;
+    padding: 0.9rem 1.1rem;
+  }
+  .motto-label {
+    font-size: 0.72rem;
+    color: #5DCAA5;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .motto-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.92rem;
+    color: #085041;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  /* footer */
+  .card-footer {
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+    color: #9FE1CB;
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(93,202,165,0.2);
+  }
+
+  /* floating bubbles */
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(29,158,117,0.12);
+    animation: floatUp linear infinite;
+    pointer-events: none;
+  }
+  @keyframes floatUp {
+    from { transform: translateY(0) scale(1); opacity: 0.6; }
+    to   { transform: translateY(-120px) scale(0.4); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- floating bubbles inside card -->
+  <div class="bubble" style="width:10px;height:10px;bottom:60px;left:30px;animation-duration:5s;animation-delay:0s;"></div>
+  <div class="bubble" style="width:6px;height:6px;bottom:80px;left:70px;animation-duration:4s;animation-delay:1s;"></div>
+  <div class="bubble" style="width:8px;height:8px;bottom:50px;right:40px;animation-duration:6s;animation-delay:2s;"></div>
+
+  <div class="ocean-header">
+    <div class="sun"></div>
+
+    <!-- wave SVG deco -->
+    <svg class="wave-deco" viewBox="0 0 480 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 15 Q60 0 120 15 Q180 30 240 15 Q300 0 360 15 Q420 30 480 15" stroke="white" stroke-width="2" fill="none"/>
+    </svg>
+
+    <div class="avatar-wrap">
+      <div class="avatar">鈺棋</div>
+      <div class="header-text">
+        <h1>林鈺棋</h1>
+        <div class="sub">巨蟹座 · Cancer ♋</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <!-- tags -->
+    <div class="tags">
+      <span class="tag tag-teal">美食探索</span>
+      <span class="tag tag-amber">深度旅行</span>
+      <span class="tag tag-blue">四處走走</span>
+    </div>
+
+    <!-- intro -->
+    <div class="intro">
+      <p>嗨！我是鈺棋，一個熱愛生活的巨蟹座男孩 🌊</p>
+      <p>喜歡跟著味蕾出發，尋訪每一道讓人驚喜的美食；也愛背上行囊，深入每個城市的巷弄，感受不同的生活溫度。</p>
+      <p>旅行對我來說不只是走馬看花，而是用心去體驗每一刻的美好。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- job -->
+    <div class="job-row">
+      <span class="job-label">目前職務</span>
+      <span class="job-text">食品加工廠・咖啡濾掛機台包裝作業人員</span>
+    </div>
+
+    <!-- motto -->
+    <div class="motto">
+      <div class="motto-label">座右銘</div>
+      <div class="motto-text">人沒有十全十美，<br>唯有更加倍的努力前行。</div>
+    </div>
+  </div>
+
+  <div class="card-footer">☀ SUMMER VIBES · 2025 ☀</div>
+</div>
+
+</body>
 </html>
