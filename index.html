@@ -216,6 +216,46 @@
     font-weight: 600;
   }
 
+  /* contact */
+  .contact-section {
+    margin-top: 1.2rem;
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .contact-row:hover {
+    background: rgba(29,158,117,0.08);
+  }
+  .contact-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .icon-phone { background: #E1F5EE; }
+  .icon-mail  { background: #E6F1FB; }
+  .contact-label {
+    font-size: 0.72rem;
+    color: #5DCAA5;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
+  }
+  .contact-value {
+    font-size: 0.88rem;
+    color: #085041;
+    font-weight: 500;
+  }
+
   /* footer */
   .card-footer {
     text-align: center;
@@ -292,6 +332,26 @@
     <div class="motto">
       <div class="motto-label">座右銘</div>
       <div class="motto-text">人沒有十全十美，<br>唯有更加倍的努力前行。</div>
+    </div>
+  </div>
+
+  <div class="card-body" style="padding-top:0;">
+    <div class="divider"></div>
+    <div class="contact-section">
+      <a class="contact-row" href="tel:0976569468">
+        <div class="contact-icon icon-phone">📱</div>
+        <div>
+          <div class="contact-label">手機</div>
+          <div class="contact-value">0976-569-468</div>
+        </div>
+      </a>
+      <a class="contact-row" href="mailto:oioi117019@gmail.com">
+        <div class="contact-icon icon-mail">✉️</div>
+        <div>
+          <div class="contact-label">信箱</div>
+          <div class="contact-value">oioi117019@gmail.com</div>
+        </div>
+      </a>
     </div>
   </div>
 
