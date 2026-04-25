@@ -216,54 +216,68 @@
     font-weight: 600;
   }
 
-  /* contact */
-  .contact-section {
-    margin-top: 1.2rem;
-  }
-  .contact-row {
+  /* contact buttons */
+  .contact-buttons {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
-    padding: 0.55rem 0.8rem;
-    border-radius: 10px;
-    transition: background 0.2s;
-    text-decoration: none;
+    margin-top: 1rem;
   }
-  .contact-row:hover {
-    background: rgba(29,158,117,0.08);
-  }
-  .contact-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
+  .btn-contact {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    flex-shrink: 0;
-  }
-  .icon-phone { background: #E1F5EE; }
-  .icon-mail  { background: #E6F1FB; }
-  .contact-label {
-    font-size: 0.72rem;
-    color: #5DCAA5;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    margin-bottom: 1px;
-  }
-  .contact-value {
+    gap: 8px;
+    padding: 0.7rem 1rem;
+    border-radius: 14px;
     font-size: 0.88rem;
-    color: #085041;
     font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    letter-spacing: 0.03em;
+  }
+  .btn-contact:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  .btn-contact:active {
+    transform: translateY(0);
+  }
+  .btn-phone {
+    background: linear-gradient(135deg, #1D9E75, #0F6E56);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(15,110,86,0.25);
+  }
+  .btn-mail {
+    background: linear-gradient(135deg, #4A90D9, #185FA5);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(24,95,165,0.22);
+  }
+  .btn-line {
+    background: linear-gradient(135deg, #06C755, #049A42);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(6,199,85,0.25);
+  }
+  .btn-icon {
+    font-size: 1.1rem;
   }
 
   /* footer */
   .card-footer {
     text-align: center;
-    padding: 0.8rem;
-    font-size: 0.7rem;
-    color: #9FE1CB;
-    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+    font-size: 0.68rem;
+    color: #5DCAA5;
+    letter-spacing: 0.05em;
     border-top: 1px solid rgba(93,202,165,0.2);
+    line-height: 1.7;
+  }
+  .card-footer .copy {
+    color: #0F6E56;
+    font-weight: 500;
   }
 
   /* floating bubbles */
@@ -337,25 +351,23 @@
 
   <div class="card-body" style="padding-top:0;">
     <div class="divider"></div>
-    <div class="contact-section">
-      <a class="contact-row" href="tel:0976569468">
-        <div class="contact-icon icon-phone">📱</div>
-        <div>
-          <div class="contact-label">手機</div>
-          <div class="contact-value">0976-569-468</div>
-        </div>
+    <div class="contact-buttons">
+      <a class="btn-contact btn-phone" href="tel:0976569468">
+        <span class="btn-icon">📱</span> 0976-569-468
       </a>
-      <a class="contact-row" href="mailto:oioi117019@gmail.com">
-        <div class="contact-icon icon-mail">✉️</div>
-        <div>
-          <div class="contact-label">信箱</div>
-          <div class="contact-value">oioi117019@gmail.com</div>
-        </div>
+      <a class="btn-contact btn-mail" href="mailto:oioi117019@gmail.com">
+        <span class="btn-icon">✉️</span> oioi117019@gmail.com
+      </a>
+      <a class="btn-contact btn-line" href="https://line.me/ti/p/d-lin" target="_blank">
+        <span class="btn-icon">💬</span> LINE：d-lin
       </a>
     </div>
   </div>
 
-  <div class="card-footer">☀ SUMMER VIBES · 2025 ☀</div>
+  <div class="card-footer">
+    ☀ SUMMER VIBES &nbsp;|&nbsp; 這是我的個人網站<br>
+    <span class="copy">© 2025 林鈺棋 · All Rights Reserved</span>
+  </div>
 </div>
 
 </body>
